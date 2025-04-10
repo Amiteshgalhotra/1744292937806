@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - Tantrum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .tnt-red {
+            background-color: #FE2C55;
+        }
+        .tnt-red-text {
+            color: #FE2C55;
+        }
+    </style>
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById('userDropdown');
+            dropdown.classList.toggle('hidden');
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                const isClickInside = event.target.closest('.relative');
+                const dropdown = document.getElementById('userDropdown');
+                
+                if (!isClickInside && !dropdown.classList.contains('hidden')) {
+                    dropdown.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='32' height='32'%3E%3Crect width='24' height='24' rx='12' fill='%23FE2C55'/%3E%3Ctext x='12' y='17' font-family='Arial' font-size='12' fill='white' text-anchor='middle'%3ETR%3C/text%3E%3C/svg%3E" 
+                             alt="Tantrum" class="h-8">
+                    </a>
+                    <div class="hidden md:flex space-x-8 ml-8">
+                        <a href="index.html" class="text-gray-500">Home</a>
+                        <a href="shop.html" class="text-gray-500">Shop</a>
+                        <a href="messages.html" class="text-gray-900 font-medium">Messages</a>
+                        <a href="explore.html" class="text-gray-500">Explore</a>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="hidden md:flex flex-1 justify-center max-w-2xl px-4">
+                    <div class="relative w-full">
+                        <input type="text" 
+                               placeholder="Search messages" 
+                               class="w-full px-4 py-2 bg-gray-100 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <button class="absolute right-3 top-2.5 text-gray-400">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Menu -->
+                <div class="flex items-center space-x-4">
+                    <a href="create-post.html" class="tnt-red text-white px-4 py-2 rounded-full font-medium inline-flex items-center">
+                        <i class="fas fa-plus mr-1"></i> Post
+                    </a>
+                    <div class="relative">
+                        <button class="text-gray-500 focus:outline-none" onclick="toggleDropdown()">
+                            <i class="fas fa-user text-xl"></i>
+                        </button>
+                        <div id="userDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50">
+                            <a href="profile.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-user-circle mr-2"></i>Profile
+                            </a>
+                            <a href="settings.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-cog mr-2"></i>Settings
+                            </a>
+                            <hr class="my-1 border-gray-200">
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 mt-20">
+        <div class="max-w-4xl mx-auto">
+            <!-- Messages List -->
+            <div class="bg-white rounded-lg shadow">
+                <!-- Message Item 1 -->
+                <div class="flex items-center p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%23f3f4f6'/%3E%3C/svg%3E" 
+                         class="w-12 h-12 rounded-full" alt="User avatar">
+                    <div class="ml-4 flex-1">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-medium">Tech Expert</h3>
+                            <span class="text-sm text-gray-500">2m ago</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-1">Thanks for the productivity tips! They're really helpful.</p>
+                    </div>
+                </div>
+
+                <!-- Message Item 2 -->
+                <div class="flex items-center p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%23f3f4f6'/%3E%3C/svg%3E" 
+                         class="w-12 h-12 rounded-full" alt="User avatar">
+                    <div class="ml-4 flex-1">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-medium">DIY Expert</h3>
+                            <span class="text-sm text-gray-500">1h ago</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-1">Could you share more details about the home organization system?</p>
+                    </div>
+                </div>
+
+                <!-- Message Item 3 -->
+                <div class="flex items-center p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%23f3f4f6'/%3E%3C/svg%3E" 
+                         class="w-12 h-12 rounded-full" alt="User avatar">
+                    <div class="ml-4 flex-1">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-medium">Wellness Coach</h3>
+                            <span class="text-sm text-gray-500">2h ago</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-1">Great progress on your wellness journey! Keep it up!</p>
+                    </div>
+                </div>
+
+                <!-- Message Item 4 -->
+                <div class="flex items-center p-4 hover:bg-gray-50 cursor-pointer">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%23f3f4f6'/%3E%3C/svg%3E" 
+                         class="w-12 h-12 rounded-full" alt="User avatar">
+                    <div class="ml-4 flex-1">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-medium">Life Hacker</h3>
+                            <span class="text-sm text-gray-500">1d ago</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-1">I've got some amazing life hacks to share with you!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation (Mobile) -->
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200">
+        <div class="grid grid-cols-5 gap-1 py-2">
+            <a href="index.html" class="flex flex-col items-center text-gray-400">
+                <i class="fas fa-home text-lg"></i>
+                <span class="text-xs mt-1">Home</span>
+            </a>
+            <a href="explore.html" class="flex flex-col items-center text-gray-400">
+                <i class="fas fa-compass text-lg"></i>
+                <span class="text-xs mt-1">Explore</span>
+            </a>
+            <a href="create-post.html" class="flex flex-col items-center">
+                <div class="tnt-red rounded-full p-3 -mt-6">
+                    <i class="fas fa-plus text-white text-lg"></i>
+                </div>
+            </a>
+            <a href="shop.html" class="flex flex-col items-center text-gray-400">
+                <i class="fas fa-shopping-bag text-lg"></i>
+                <span class="text-xs mt-1">Shop</span>
+            </a>
+            <a href="profile.html" class="flex flex-col items-center text-gray-400">
+                <i class="fas fa-user text-lg"></i>
+                <span class="text-xs mt-1">Me</span>
+            </a>
+        </div>
+    </nav>
+</body>
+</html>
