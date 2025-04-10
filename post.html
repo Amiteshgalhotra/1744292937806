@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Details - Tantrum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .tnt-red {
+            background-color: #FE2C55;
+        }
+        .tnt-red-text {
+            color: #FE2C55;
+        }
+    </style>
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById('userDropdown');
+            dropdown.classList.toggle('hidden');
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                const isClickInside = event.target.closest('.relative');
+                const dropdown = document.getElementById('userDropdown');
+                
+                if (!isClickInside && !dropdown.classList.contains('hidden')) {
+                    dropdown.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation Bar (Same as index.html) -->
+    <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='32' height='32'%3E%3Crect width='24' height='24' rx='12' fill='%23FE2C55'/%3E%3Ctext x='12' y='17' font-family='Arial' font-size='12' fill='white' text-anchor='middle'%3ETR%3C/text%3E%3C/svg%3E" 
+                         alt="Tantrum" class="h-8">
+                    </a>
+                    <div class="hidden md:flex space-x-8 ml-8">
+                        <a href="index.html" class="text-gray-900 font-medium">Home</a>
+                        <a href="shop.html" class="text-gray-500">Shop</a>
+                        <a href="messages.html" class="text-gray-500">Messages</a>
+                        <a href="#" class="text-gray-500">Explore</a>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="hidden md:flex flex-1 justify-center max-w-2xl px-4">
+                    <div class="relative w-full">
+                        <input type="text" 
+                               placeholder="Search for content you're interested in" 
+                               class="w-full px-4 py-2 bg-gray-100 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <button class="absolute right-3 top-2.5 text-gray-400">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Menu -->
+                <div class="flex items-center space-x-4">
+                    <a href="create-post.html" class="tnt-red text-white px-4 py-2 rounded-full font-medium inline-flex items-center">
+                        <i class="fas fa-plus mr-1"></i> Post
+                    </a>
+                    <div class="relative">
+                        <button class="text-gray-500 focus:outline-none" onclick="toggleDropdown()">
+                            <i class="fas fa-user text-xl"></i>
+                        </button>
+                        <div id="userDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50">
+                            <a href="profile.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-user-circle mr-2"></i>Profile
+                            </a>
+                            <a href="settings.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-cog mr-2"></i>Settings
+                            </a>
+                            <hr class="my-1 border-gray-200">
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Post Content -->
+    <main class="container mx-auto px-4 mt-20 mb-16">
+        <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-sm">
+            <!-- Post Header -->
+            <div class="p-4 border-b">
+                <div class="flex items-center">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%23f3f4f6'/%3E%3C/svg%3E" 
+                         class="w-10 h-10 rounded-full" alt="User avatar">
+                    <div class="ml-3">
+                        <h3 class="font-medium">Fashion Blogger</h3>
+                        <p class="text-sm text-gray-500">Posted 2 hours ago</p>
+                    </div>
+                    <button class="ml-auto xhs-red text-white px-4 py-1 rounded-full text-sm">
+                        Follow
+                    </button>
+                </div>
+            </div>
+
+            <!-- Post Images -->
+            <div class="relative">
+                <div class="flex snap-x snap-mandatory overflow-x-auto">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 1000'%3E%3Crect width='800' height='1000' fill='%23f3f4f6'/%3E%3C/svg%3E" 
+                         class="w-full snap-center" alt="Post image">
+                </div>
+                <div class="absolute bottom-4 right-4 bg-black bg-opacity-50 text-white px-2 py-1 rounded-full text-sm">
+                    1/4
+                </div>
+            </div>
+
+            <!-- Post Details -->
+            <div class="p-4">
+                <h1 class="text-xl font-medium mb-2">Practical solutions for everyday challenges</h1>
+                <p class="text-gray-700 mb-4">
+                    Here are some effective solutions that will help you tackle common problems! I've put together a collection of practical tips and tricks that can be applied to various situations. #Solutions #Tips #Productivity
+                </p>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm tag-pill">#Fashion</span>
+                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm tag-pill">#Style</span>
+                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm tag-pill">#SummerFashion</span>
+                </div>
+
+                <!-- Engagement Stats -->
+                <div class="flex items-center space-x-6 border-t border-b py-3">
+                    <button class="flex items-center space-x-2">
+                        <i class="far fa-heart text-xl"></i>
+                        <span>1.2k</span>
+                    </button>
+                    <button class="flex items-center space-x-2">
+                        <i class="far fa-comment text-xl"></i>
+                        <span>234</span>
+                    </button>
+                    <button class="flex items-center space-x-2">
+                        <i class="far fa-bookmark text-xl"></i>
+                        <span>56</span>
+                    </button>
+                    <button class="flex items-center space-x-2">
+                        <i class="far fa-share-square text-xl"></i>
+                        <span>Share</span>
+                    </button>
+                </div>
+
+                <!-- Comments Section -->
+                <div class="mt-4">
+                    <h3 class="font-medium mb-4">Comments (234)</h3>
+                    
+                    <!-- Comment Input -->
+                    <div class="flex items-center mb-4">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%23f3f4f6'/%3E%3C/svg%3E" 
+                             class="w-8 h-8 rounded-full" alt="User avatar">
+                        <input type="text" 
+                               placeholder="Add a comment..." 
+                               class="flex-1 ml-3 px-4 py-2 bg-gray-100 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+
+                    <!-- Comments List -->
+                    <div class="space-y-4">
+                        <!-- Comment 1 -->
+                        <div class="flex">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%23f3f4f6'/%3E%3C/svg%3E" 
+                                 class="w-8 h-8 rounded-full" alt="User avatar">
+                            <div class="ml-3">
+                                <div class="bg-gray-100 rounded-2xl px-4 py-2">
+                                    <p class="font-medium text-sm">Style Enthusiast</p>
+                                    <p class="text-sm">Love these tips! The color combinations are perfect for summer!</p>
+                                </div>
+                                <div class="flex items-center mt-1 text-sm text-gray-500">
+                                    <span>1h ago</span>
+                                    <span class="mx-2">·</span>
+                                    <button>Like</button>
+                                    <span class="mx-2">·</span>
+                                    <button>Reply</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Comment 2 -->
+                        <div class="flex">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%23f3f4f6'/%3E%3C/svg%3E" 
+                                 class="w-8 h-8 rounded-full" alt="User avatar">
+                            <div class="ml-3">
+                                <div class="bg-gray-100 rounded-2xl px-4 py-2">
+                                    <p class="font-medium text-sm">Fashion Lover</p>
+                                    <p class="text-sm">Can you do more posts about accessorizing? Your tips are always so helpful!</p>
+                                </div>
+                                <div class="flex items-center mt-1 text-sm text-gray-500">
+                                    <span>2h ago</span>
+                                    <span class="mx-2">·</span>
+                                    <button>Like</button>
+                                    <span class="mx-2">·</span>
+                                    <button>Reply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation (Mobile) -->
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200">
+        <div class="grid grid-cols-5 gap-1 py-2">
+            <a href="index.html" class="flex flex-col items-center text-red-500">
+                <i class="fas fa-home text-lg"></i>
+                <span class="text-xs mt-1">Home</span>
+            </a>
+            <a href="#" class="flex flex-col items-center text-gray-400">
+                <i class="fas fa-compass text-lg"></i>
+                <span class="text-xs mt-1">Explore</span>
+            </a>
+            <a href="create-post.html" class="flex flex-col items-center">
+                <div class="tnt-red rounded-full p-3 -mt-6">
+                    <i class="fas fa-plus text-white text-lg"></i>
+                </div>
+            </a>
+            <a href="#" class="flex flex-col items-center text-gray-400">
+                <i class="fas fa-shopping-bag text-lg"></i>
+                <span class="text-xs mt-1">Shop</span>
+            </a>
+            <a href="#" class="flex flex-col items-center text-gray-400">
+                <i class="fas fa-user text-lg"></i>
+                <span class="text-xs mt-1">Me</span>
+            </a>
+        </div>
+    </nav>
+</body>
+</html>
